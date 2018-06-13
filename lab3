@@ -1,0 +1,148 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void Program1()
+{
+	cout << "Counting Up! " << endl;
+	int i = 0;
+	while (i <= 20)
+	{
+
+		cout << " " << i;
+		i++;
+	}
+}
+
+void Program2()
+{
+	cout << "Counting Up! " << endl;
+	int i = 1;
+	while (i <= 128)
+	{
+
+		cout << " " << i;
+		i = i * 2;
+	}
+}
+
+void Program3()
+{
+	int secretNumber = 35;
+	int playerGuess;
+	cout << "NUMBER GUESSER" << endl;
+
+	do
+	{
+		cout << "Guess a Number: \t";
+		cin >> playerGuess;
+
+		if (playerGuess > 35)
+		{
+			cout << "Too high!" << endl;
+		}
+		else if (playerGuess < 35)
+		{
+			cout << "Too low!" << endl;
+		}
+		else if (playerGuess = 35)
+		{
+			cout << "That's right!" << endl << endl;
+			cout << "GAME OVER" << endl;
+		}
+
+	} while (playerGuess != secretNumber);
+}
+
+void Program4()
+{
+	int userNumber;
+
+	cout << "Please enter a number between 0 and 5: ";
+	cin >> userNumber;
+
+	while (userNumber > 5 || userNumber < 0)
+	{
+		cout << "Invalid entry, try again: ";
+		cin >> userNumber;
+		if (userNumber >= 0 && userNumber <= 5)
+		{
+			cout << "Thank you." << endl;
+		}
+	}
+
+}
+
+void Program5()
+{
+	float startingWage;
+	float percentRaisePerYear;
+	float adjustedWage;
+	int yearsWorked;
+	int yearCounter = 1;
+
+	cout << "What is your starting Wage? \t\t ";
+	cin >> startingWage;
+
+	cout << "What % raise do you get per year? \t ";
+	cin >> percentRaisePerYear;
+
+	cout << "How many years have you worked there?    ";
+	cin >> yearsWorked;
+
+	
+	adjustedWage = startingWage;
+	while (yearCounter <= yearsWorked)
+	{
+		cout << "Salary at year " << yearCounter << " : \t" << adjustedWage << endl;
+		yearCounter++;
+		adjustedWage = (adjustedWage * percentRaisePerYear / 100 + adjustedWage);
+		
+	}
+
+}
+
+void Program6()
+{
+	int sum = 0;
+	int nValue;
+	int counter = 1;
+
+	cout << "CALCULATE A SUM" << endl;
+
+	cout << "Enter a value for n: ";
+	cin >> nValue;
+
+	int result;
+	while (counter <= nValue)
+	{
+		result = counter + sum;
+		sum = result;
+		cout << "Sum: " << sum << endl;
+		counter++;
+	}
+}
+
+int main()
+{
+	// Don't modify main
+	while (true)
+	{
+		cout << "Run which program? (1-6): ";
+		int choice;
+		cin >> choice;
+
+		cout << endl << endl;
+
+		if (choice == 1) { Program1(); }
+		else if (choice == 2) { Program2(); }
+		else if (choice == 3) { Program3(); }
+		else if (choice == 4) { Program4(); }
+		else if (choice == 5) { Program5(); }
+		else if (choice == 6) { Program6(); }
+
+		cout << endl << "------------------------------------" << endl;
+	}
+
+	return 0;
+}
