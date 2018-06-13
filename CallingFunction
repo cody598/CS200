@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+// Input: A percent value (0% - 100%, no percent sign though)
+// Output: The decimal equivalent (0.0 - 1.0)
+float PercentToDecimal(float percent)
+{
+	float decimal = percent / 100;
+	return decimal;
+}
+
+int main()
+{
+	float num;
+	cout << "PERCENT TO DECIMAL" << endl << endl;
+	cout << "Enter a percent value, without the %: ";
+	cin >> num;
+
+	cout << endl;
+	cout << "Decimal value: " << PercentToDecimal(num);
+
+	// Don't quit automatically 
+	cin.ignore();
+	cin.get();
+	return 0;
+
+}
