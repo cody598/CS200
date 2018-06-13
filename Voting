@@ -1,0 +1,97 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <iomanip>
+using namespace std;
+
+// Display two options: Add new to-do item, or quit.
+
+void DisplayMainMenu()
+{
+	cout << "Vote for a food item:" << endl;
+	cout << "1. Pizza" << endl;
+	cout << "2. Samosas" << endl;
+	cout << "3. Tacos" << endl;
+	cout << "4. Bibimbap" << endl << endl;
+	cout << "Or quit the program with:" << endl <<
+		"5. Quit" << endl << endl;
+	cout << "Choice: ";
+}
+
+// Get the user's input, validate whether it is between min and max,
+// if the value is invalid, ask the user to input it again
+// (using a while loop).
+// Once the user's input is valid, return that value.
+int GetChoice(int min, int max)
+{
+	int choice;
+	cin >> choice;
+
+	while (choice < min || choice > max)
+	{
+		//User entered invalid number
+		cout << "Invalid value , try again." << endl;
+		cout << "Choice: ";
+		cin >> choice;
+	}
+	return choice;
+}
+int main()
+{		
+	int pizzaVotes = 0;
+	int samosasVotes = 0;
+	int tacosVotes = 0;
+	int bibimbapVotes = 0;
+
+	bool done = false;
+
+	ofstream output("voting.txt"); // this also opens output.txt
+	output << "POLL RESULTS" << endl << endl;
+
+	cout << "Voting" << endl << endl << endl;
+	cout << "------------------" << endl;
+
+	while (!done)
+	{
+		DisplayMainMenu();
+		int choice = GetChoice(1, 5);
+		cout << endl;
+
+		if (choice == 1)
+		{
+			cout << "\tVote successful." << endl << endl << endl << "------------------" << endl;
+			pizzaVotes++;
+		}
+		else if (choice == 2)
+		{
+			cout << "\tVote successful." << endl << endl << endl << "------------------" << endl;
+			samosasVotes++;
+		}
+		else if (choice == 3)
+		{
+			cout << "\tVote successful." << endl << endl << endl << "------------------" << endl;
+			tacosVotes++;
+		}
+		else if (choice == 4)
+		{
+			cout << "\tVote successful." << endl << endl << endl << "------------------" << endl;
+			bibimbapVotes++;
+		}
+		else if (choice == 5)
+		{
+			cout << "Goodbye.";
+			;
+			done = true;
+		}
+	}
+	output << "Pizza:    " << pizzaVotes << " votes" << endl
+		<< "Samosas:  " << samosasVotes << " votes" << endl
+		<< "Tacos:    " << tacosVotes << " votes" << endl
+		<< "Bibimbap: " << bibimbapVotes << " votes" << endl;
+	
+	// Don't quit automatically
+	cin.ignore();
+	cin.get();
+	output.close();
+	return 0;
+}
