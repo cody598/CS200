@@ -1,0 +1,7 @@
+1. floats can store numbers with decimal, or without a decimals
+2. characters from the source enclosed by double quotation marks "___"
+3. main()
+4. cout
+5. cin
+6. stream operators
+7. *= is the assignment operator
