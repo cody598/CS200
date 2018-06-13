@@ -1,0 +1,70 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+void DisplayMenu()
+{
+	
+	cout << "1. Add money" << endl;
+	cout << "2. Subtract money" << endl;
+	cout << "3. Quit" << endl;
+	cout << endl << ">> ";
+}
+
+void PrintPrice(float price)
+{
+	cout << "$" << price;
+}
+
+int main()
+{
+	cout << "MONEY MATH";
+
+	cout << endl << "------------------------" << endl;
+
+	while (true)
+	{
+		DisplayMenu();
+		float num1, num2;
+		int choice;
+		cin >> choice;
+		
+
+		if (choice == 1)
+		{
+			cout << "Enter first amount:  $";
+			cin >> num1;
+			cout << "Enter second amount: $";
+			cin >> num2;
+
+			float price = num1 + num2;
+			cout << endl << "Result: ";
+			PrintPrice(price);
+
+			cout << endl << endl << "------------------------" << endl;
+		}
+		else if (choice == 2)
+		{
+			cout << "Enter first amount:  $";
+			cin >> num1;
+			cout << "Enter second amount: $";
+			cin >> num2;
+
+			float price = num1 - num2;
+			cout << endl << "Result: ";
+			PrintPrice(price);
+
+			cout << endl << endl << "------------------------" << endl;
+			
+		}
+		else if (choice == 3)
+		{
+			cout << "Goodbye.";
+			break;
+		}
+	}
+	// Don't quit automatically 
+	cin.ignore();
+	cin.get();
+	return 0;
+}
