@@ -1,0 +1,53 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <iomanip>
+using namespace std;
+
+string name;
+int level;
+int money;
+string buffer;
+
+int main()
+{
+	ifstream input;
+	input.open("savegame.txt");
+
+	if (input.fail())
+	{
+		cout << "Could not find input file!" << endl;
+		return 1; // exit
+	}
+
+		cout << "SAVEGAME" << endl << endl;
+
+	input >> buffer >> name;
+	input >> buffer >> level;
+	input >> buffer >> money;
+	
+	cout << "Name: \t" << name << endl;
+	cout << "Level: \t" << level << endl;
+	cout << "Money: \t" << money << endl << endl;
+
+	level++;
+	money = money + 100;
+	input.close();
+
+	ofstream output("savegame.txt"); // this also opens output.txt
+
+	output << "NAME " << name << endl;
+	output << "LEVEL " << level << endl;
+	output << "MONEY " << money << endl;
+
+	cout << "LEVELING UP" << endl
+		<< "SAVING" << endl 
+		<< "CLOSING" << endl;
+	
+	// Don't quit automatically
+	cin.ignore();
+	cin.get();
+	
+	output.close();
+	return 0;
+}
