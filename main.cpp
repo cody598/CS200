@@ -2,39 +2,37 @@
 #include <string>
 using namespace std;
 
-int Choice(int min, int max)
-{
-	int decision;
-	cin >> decision;
+#include "functions.hpp"
 
-	while (decision < min || decision > max)
-	{
-		//User entered invalid number
-		cout << "Invalid value , try again: " ;
-		cin >> decision;
-	}
-	return decision;
-}
 int main()
 
 {
-	//Feature 1
 	int percentHunger = 0;
 	int percentHappiness = 100;
 	int percentHealth = 100;
-	string petName;
 
-	
-	cout << "What do you want your pet name to be: ";
-	cin >> petName;
+	displayPetMenu();
+	int whichPet = petChoice(1,3); 
 	cout << endl << endl;
-
+	string petName = nameOfPet();
+	
 	bool quit = false;
 	while (!quit)
 	{
-		cout << "  ^   ^ " << endl;
-		cout << "=( O.O )=" << endl;
-		cout << endl;
+		if (whichPet == 1)
+		{
+			displayCat();
+		}
+		else if (whichPet == 2)
+		{
+			displayBunny();
+		}
+		else if (whichPet == 3)
+		{
+			displayFish();
+		}
+		
+		cout << endl << endl << endl;
 		cout << "Name: \t\t" << petName << endl <<
 			"Hunger: \t" << percentHunger << "%" << endl <<
 			"Happiness: \t" << percentHappiness << "%" << endl <<
@@ -91,7 +89,6 @@ int main()
 			cout << "Your pet has been taken away from you!" << endl;
 			cout << "Game Over";
 			quit = true;
-			
 		}
 		else if (percentHunger < 0)
 		{
@@ -115,7 +112,6 @@ int main()
 		{
 			percentHealth = 0;
 		}
-	
 	}
 
 	cin.ignore();
