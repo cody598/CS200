@@ -15,7 +15,7 @@ int main()
 	
 	for (int i = 0; i < size; i++)
 	{
-		cout << "i = " << i << endl;
+		cout << endl << "i = " << i << endl;
 		cout << "\tEnter int value:\t";
 		cin >> myIntArr[i];
 		cout << "\tEnter string value:\t";
@@ -24,10 +24,10 @@ int main()
 		cin >> myFloatArr[i];
 	}
 	cout << endl << endl << "Here is your data:"  << endl << endl;
-	cout << "int\t string\t  float" << endl;
+	cout << "int\t string\t      float" << endl;
 	for (int i = 0; i < size; i++)
 	{
-		cout << myIntArr[i] << "\t " << myStrArr[i] << "\t " << myFloatArr[i];
+		cout << myIntArr[i] << "\t " << myStrArr[i] << "\t      " << myFloatArr[i] << endl;
 	}
 
 
