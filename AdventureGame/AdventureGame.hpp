@@ -16,7 +16,7 @@ public:
 
 private:
 	Location m_locations[9];                // All the game's locations
-	Location* m_ptrCurrentLocation;         // Pointer to current location
+	Location* m_ptrCurrentLocation; // Pointer to current location
 };
 
 #endif
