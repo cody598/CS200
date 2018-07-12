@@ -62,5 +62,24 @@ void Location::SetNeighbor(string direction, Location* ptrLocation)
 }
 Location * Location::GetNeighbor(string direction)
 {
-	return nullptr;
+	if (direction == "north")
+	{
+		return m_ptrNorth;
+	}
+	else if (direction == "south")
+	{
+		return m_ptrSouth;
+	}
+	else if (direction == "east")
+	{
+		return m_ptrEast;
+	}
+	else if (direction == "west")
+	{
+		return m_ptrWest;
+	}
+	else
+	{
+		return nullptr;
+	}
 }
