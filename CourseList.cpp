@@ -1,3 +1,4 @@
+
 #include "CourseList.hpp"
 
 #include <iostream>
@@ -50,11 +51,8 @@ int CourseList::FindAvailableIndex()
 				return i;
 			}
 		}
-		if (m_array[i] != "")
-	{
-		return -1;
 	}
-	}
+	return -1;
 }
 
 void CourseList::Remove( int index )
@@ -127,9 +125,8 @@ void CourseList::Resize()
 	{
 		newArray[i] = m_array[i];
 	}
+	
+	delete[] m_array;
 	m_array = newArray;
 	m_arraySize = newSize;
-
-	delete[] newArray;
-	
 }
